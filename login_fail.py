@@ -56,7 +56,7 @@ class Fail_Window(QMainWindow):
         self.centralwidget.setObjectName("centralwidget")
         self.background = QtWidgets.QLabel(self.centralwidget)
         self.background.setGeometry(QtCore.QRect(0, 0, 260, 220))
-        self.background.setStyleSheet("background-color: rgb(125, 200, 158);\n"
+        self.background.setStyleSheet("background-color: rgb(110, 176, 138);\n"
 "border-radius:20px;")
         self.background.setText("")
         self.background.setObjectName("background")
@@ -95,7 +95,7 @@ class Fail_Window(QMainWindow):
         self.pushButton_fail.setObjectName("pushButton_fail")
 
         # self.pushButton_fail.clicked.connect(self.try_again)
-        self.pushButton_fail.clicked.connect(self.backView)
+        self.pushButton_fail.clicked.connect(MainWindow.close)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
