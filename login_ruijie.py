@@ -6,13 +6,14 @@ import threading
 
 from PyQt5.QtWidgets import QApplication
 
-import MainWindow
+import MainWindow as MW
 import data
+import login_fail
 import login_finish
 import weiShao_checkIn as wCK
-signLog = 0
+signLog = 2
 key = 0
-state = 0;
+state = 0
 
 def detectionNetwork():
     """检查当前网络状态返回一个是否连接成功"""
@@ -56,13 +57,6 @@ def call_signIn(func, id, password):
 def call_func(id, password):
     call_signIn(signIn, id, password)
 
-
-def fish_window():
-    app = QApplication(sys.argv)
-    finish_messageBox = login_finish.Finish_Window()
-    finish_messageBox.show()
-    sys.exit(app.exec_())  # 执行到这里的时候，窗口才会正在显示，并且就会停止执行下面的代码，并循环等待事件，知道程序退出
-
 def finish_window():
     app = QApplication(sys.argv)
     finish_messageBox = login_finish.Finish_Window()
@@ -71,8 +65,8 @@ def finish_window():
 
 def fail_window():
     app = QApplication(sys.argv)
-    finish_messageBox = login_finish.Finish_Window()
-    finish_messageBox.show()
+    fail_messageBox = login_fail.Fail_Window()
+    fail_messageBox.show()
     sys.exit(app.exec_())  # 执行到这里的时候，窗口才会正在显示，并且就会停止执行下面的代码，并循环等待事件，知道程序退出
 
 def signIn(id, password):
@@ -80,6 +74,8 @@ def signIn(id, password):
 
     print("进入登录方法")
     print("关闭锐捷")
+    global signLog
+    signLog = 2
     closeR = os.popen('taskkill /f /t /im 8021x.exe')
     strget = getpopen(closeR)
     print(strget)
@@ -103,18 +99,20 @@ def signIn(id, password):
     print(strget)
 
     var = "访问错误"
+
+    signLog = 2
     signLog = findtxt(var, strget)  # 找到就返回1，否则为0
     if signLog == 0:
         print("链接成功")
         wCK.loging()  # 登录微哨
         wCK.run()  # 尝试进行打卡
-        MainWindow.mainWindow.hide()
         finish_window()
     elif signLog == 1:
         print("链接失败")
-        MainWindow.mainWindow.hide()
         fail_window()
 
+def sing_log():
+    return signLog
 
 
 

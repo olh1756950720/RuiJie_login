@@ -45,8 +45,8 @@ class SettingWindow(QMainWindow):
 
     def backView(self):
         self.hide()
-        self.mainWindow = MainWindow.Ui_MainWindow()
-        self.mainWindow.show()
+        self.window = MainWindow.Ui_MainWindow()
+        self.window.show()
 
 
     def getfile(self):

@@ -58,7 +58,7 @@ class Finish_Window(QMainWindow):
         self.centralwidget.setObjectName("centralwidget")
         self.background = QtWidgets.QLabel(self.centralwidget)
         self.background.setGeometry(QtCore.QRect(0+10, 0+10, 260, 220))
-        self.background.setStyleSheet("background-color: rgb(125, 200, 158);\n"
+        self.background.setStyleSheet("background-color: rgb(110, 176, 138);\n"
 "border-radius:20px;")
         self.background.setText("")
         self.background.setObjectName("background")
@@ -98,11 +98,11 @@ class Finish_Window(QMainWindow):
 "padding-top:3px;\n"
 "}")
         self.pushButton_finish.setObjectName("pushButton_finish")
-        self.pushButton_finish.clicked.connect(self.backView)
+        self.pushButton_finish.clicked.connect(MainWindow.close)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Exit.clicked.connect(self.backView)
+        self.Exit.clicked.connect(MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

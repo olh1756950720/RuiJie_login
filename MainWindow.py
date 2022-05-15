@@ -1,13 +1,44 @@
 # -*- coding: utf-8 -*-
+import time
 
-from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtCore import Qt, QPoint, QThread, QMutex
 from PyQt5.QtGui import QMouseEvent, QMovie
+from win32ctypes.core import ctypes
 
 import resources_rc
 import settingWindow, data, login_ruijie
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
+
+"""
+当前问题，显示提示窗时不能关闭当前函数，从提示窗返回函数时，属于开启新的窗口，
+无法显示原来的窗口
+
+"""
+    # 继承QThread
+class Thread_1(QThread):  # 线程1
+    def __init__(self):
+        super().__init__()
+
+    def run(self):
+        # qmut_1 = QMutex()  # 创建线程锁
+        while (True):
+            # self.qmut_1.lock()  # 加锁
+            print(login_ruijie.sing_log())
+            time.sleep(2)  # 休眠
+            if login_ruijie.sing_log() != 2:
+                # window.hide()
+                try:
+                    # window.th.finished()
+                    # ret = ctypes.windll.kernel32.TerminateThread(self._thread.handle, 0)
+                    # print('终止线程', self._thread.handle, ret)
+                    print("关闭线程")
+                except:
+                    print("线程未启动")
+
+            # self.qmut_1.unlock()  # 解锁
+                window.pushButton_login.show()
 
 
 class Ui_MainWindow(QMainWindow):
@@ -64,6 +95,7 @@ class Ui_MainWindow(QMainWindow):
         print(self.getUsearPassword)
         # 调用call_func 传值和开启新线程
         login_ruijie.call_func(self.getUsearName, self.getUsearPassword)
+        self.start_thread()
 
         # @staticmethod
 
@@ -204,6 +236,9 @@ class Ui_MainWindow(QMainWindow):
                                        "")
         self.help_button.setText("")
         self.help_button.setObjectName("help_button")
+
+        self.help_button.clicked.connect(self.start_thread)
+
         self.setting_button = QtWidgets.QPushButton(self.centralwidget)
         self.setting_button.setGeometry(QtCore.QRect(215, 335, 28, 28))
         self.setting_button.setStyleSheet("QPushButton\n"
@@ -270,9 +305,15 @@ class Ui_MainWindow(QMainWindow):
         self.checkBox.setText(_translate("MainWindow", "记住账号密码"))
 
 
+    def start_thread(self):
+        self.th = Thread_1()
+        self.th.start()
+
+
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    mainWindow = Ui_MainWindow()  # MainWindow1随便改
-    mainWindow.show()
-
+    window = Ui_MainWindow()  # MainWindow1随便改
+    window.show()
     sys.exit(app.exec_())
