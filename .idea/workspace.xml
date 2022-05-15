@@ -38,7 +38,7 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ChangesTree.GroupingKeys" value="directory" />
+    <property name="ChangesTree.GroupingKeys" value="" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -211,6 +211,7 @@
       <workItem from="1652608036822" duration="4077000" />
       <workItem from="1652612416364" duration="22457000" />
       <workItem from="1652636912639" duration="317000" />
+      <workItem from="1652637645588" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1652604657167</created>
@@ -268,7 +269,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652636204611</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=".">
+      <created>1652637703992</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652637703992</updated>
+    </task>
+    <task id="LOCAL-00010" summary=".">
+      <created>1652637937299</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652637937299</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +325,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
