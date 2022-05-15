@@ -1,0 +1,19 @@
+<RCC>
+  <qresource prefix="image">
+    <file>resource/finish.gif</file>
+    <file>resource/dialog.gif</file>
+    <file>resource/帮助.png</file>
+    <file>resource/帮助按下.png</file>
+    <file>resource/fail.gif</file>
+    <file>resource/帮助未按下.png</file>
+    <file>resource/登录按下.png</file>
+    <file>resource/登录未按下.png</file>
+    <file>resource/设置.png</file>
+    <file>resource/设置按下.png</file>
+    <file>resource/设置未按下.png</file>
+    <file>resource/输入框背景.png</file>
+    <file>resource/头像（1）.png</file>
+    <file>resource/头像.png</file>
+    <file>resource/钥匙.png</file>
+  </qresource>
+</RCC>
