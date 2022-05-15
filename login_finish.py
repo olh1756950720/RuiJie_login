@@ -128,3 +128,4 @@ if __name__ == '__main__':
     mainWindow = Finish_Window()  # MainWindow1随便改
     mainWindow.show()
     sys.exit(app.exec_())
+
