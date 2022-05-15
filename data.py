@@ -13,6 +13,7 @@ def read_date(name):
     file = open(full_path, 'r', encoding="utf-8")
     data = file.readlines()
     file.close()
+
     return data
 
 if __name__ == '__main__':
